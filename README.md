@@ -5,3 +5,5 @@
 > cd MedicineCare
 > git checkout -b writeYourNe
 code .
+
+hello im amal
