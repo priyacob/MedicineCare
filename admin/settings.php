@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,15 +12,15 @@
     <div class="d-flex" id="wrapper">
         <nav class="bg-light border-end" id="sidebar">
             <div class="sidebar-header text-center">
-                <h4 class="mt-3">Big Bazzar</h4>
+                <h4 class="mt-3">MedicineCare</h4>
             </div>
             <ul class="list-unstyled">
-                <li><a href="index.html">Dashboard</a></li>
-                <li><a href="order.html">Orders</a></li>
-                <li><a href="product.html">Products</a></li>
-                <li><a href="customer.html">Customers</a></li>
-                <li><a href="notification.html">Notifications</a></li>
-                <li class="active"><a href="settings.html">Settings</a></li>
+                <li><a href="index.php">Dashboard</a></li>
+                <li><a href="order.php">Orders</a></li>
+                <li><a href="product.php">Products</a></li>
+                <li><a href="customer.php">Customers</a></li>
+                <li><a href="notification.php">Notifications</a></li>
+                <li class="active"><a href="settings.php">Settings</a></li>
             </ul>
         </nav>
 
@@ -88,4 +88,4 @@
     <script src="assets/js/ajax.js"></script>
     <script src="assets/js/scripts.js"></script>
 </body>
-</html>
+</php>

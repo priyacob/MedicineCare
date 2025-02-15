@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE php>
+<php lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,12 +16,12 @@
                 <h4 class="mt-3">Big Bazzar</h4>
             </div>
             <ul class="list-unstyled">
-                <li><a href="index.html">Dashboard</a></li>
-                <li><a href="order.html">Orders</a></li>
-                <li><a href="product.html">Products</a></li>
-                <li><a href="customer.html">Customers</a></li>
-                <li class="active"><a href="notification.html">Notifications</a></li>
-                <li><a href="settings.html">Settings</a></li>
+                <li><a href="index.php">Dashboard</a></li>
+                <li><a href="order.php">Orders</a></li>
+                <li><a href="product.php">Products</a></li>
+                <li><a href="customer.php">Customers</a></li>
+                <li class="active"><a href="notification.php">Notifications</a></li>
+                <li><a href="settings.php">Settings</a></li>
             </ul>
         </nav>
 
@@ -42,10 +42,10 @@
                             <img src="image/s boss.jpg" alt="Profile" class="rounded-circle" width="30" height="30" object-fit="cover" over-flow="hidden">
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                            <li><a class="dropdown-item" href="settings.html">Settings</a></li>
+                            <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                            <li><a class="dropdown-item" href="settings.php">Settings</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="index.html">Logout</a></li>
+                            <li><a class="dropdown-item" href="index.php">Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -64,4 +64,4 @@
     <script src="assets/js/scripts.js"></script>
     
 </body>
-</html>
+</php>
