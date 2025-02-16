@@ -1,24 +1,17 @@
 <?php
 include("../includes/db.php");
 if(isset($_POST['submit']) && isset($_POST['submit']) != null) {
+    // Fetch input and escape special characters
     $email = $_POST['email'];
-    $password = md5($_POST['password']); // Hash password using MD5
-    $sql = "SELECT * FROM admin WHERE email = '$email' And password = '$password'";
-    $check = mysqli_query($con, $sql);
-
-    if (mysqli_num_rows($check) > 0) {
-        echo "Error: This email is already registered!";
-        header("location:login.php");
+    $password = md5($_POST['password']); // Hash the input password using MD5
+    $sql = "SELECT * FROM admin WHERE email = '$email' AND password = '$password'";
+    $result = mysqli_query($con, $sql);
+    if (mysqli_num_rows($result) > 0) {
+        echo "Login successful!";
+        header("location:dashboard.php");
     } else {
-        // Step 4: Insert Admin into Database
-        $sql = "INSERT INTO admin (email, password) VALUES ('$email', '$password')"; 
-        $result = mysqli_query($con, $sql);
-        if ($result) {
-            echo "Admin registered successfully!";
-            header("location:login.php");
-        } else {
-            echo "alert(something went wrong.)";
-        }
+        echo "Invalid email or password.";
+        header("location:signup.php");
     }
 }
 ?>
@@ -28,8 +21,24 @@ if(isset($_POST['submit']) && isset($_POST['submit']) != null) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Signup</title>
-    <style>
+    <title>Admin Signin</title>
+    
+</head>
+<body>
+
+<div class="container">
+    <h2>Admin Signin</h2>
+    <form method="POST" action="">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <input type="password" name="password" placeholder="Enter your password" required>
+        <button type="submit" name="submit">Signup</button>
+    </form>
+</div>
+
+</body>
+</html>
+
+<style>
         /* General Styles */
         body {
             font-family: Arial, sans-serif;
@@ -91,18 +100,3 @@ if(isset($_POST['submit']) && isset($_POST['submit']) != null) {
             }
         }
     </style>
-</head>
-<body>
-
-<div class="container">
-    <h2>Admin Signup</h2>
-    <form method="POST" action="">
-        <input type="email" name="email" placeholder="Enter your email" required>
-        <input type="password" name="password" placeholder="Enter your password" required>
-        <button type="submit" name="submit">Signup</button>
-    </form>
-</div>
-
-</body>
-</html>
-
