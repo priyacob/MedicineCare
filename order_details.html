@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #8e44ad;
+            color: white;
+        }
+        .summary {
+            margin-top: 20px;
+            text-align: right;
+        }
+        .summary p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Order Details</h2>
+        <table>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Code</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>Lignocaine HCl injection I.P 1% </td>
+                <td>3654351614</td>
+                <td>2</td>
+                <td>RS/-500</td>
+            </tr>
+            <tr>
+                <td>Paracetamol tab 650 mg</td>
+                <td>3654351614-Of</td>
+                <td>5</td>
+                <td>RS/-500</td>
+            </tr>
+            <tr>
+                <td>Lornoxicam tab 4 mg</td>
+                <td>3654351614</td>
+                <td>4</td>
+                <td>RS/-500</td>
+            </tr>
+            <tr>
+                <td> Aceclofenac gel </td>
+                <td>3654351614</td>
+                <td>5</td>
+                <td>RS/-500</td>
+            </tr>
+        </table>
+        <div class="summary">
+            <p><strong>Subtotal:</strong> $2,256</p>
+            <p><strong>Shipping fee:</strong> $10</p>
+            <p><strong>Tax:</strong> $15</p>
+            <p><strong>Total:</strong> $2,281</p>
+        </div>
+    </div>
+</body>
+</html>
