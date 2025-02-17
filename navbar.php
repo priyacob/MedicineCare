@@ -14,7 +14,8 @@
 		
 		<!-- Favicon -->
         <link rel="icon" href="img/favicon.png">
-		
+		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
 		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
@@ -129,9 +130,11 @@
 												
 											</li>
 							
-											<li><a href="#">Medicine<i class="icofont-rounded-down"></i></a>
+											<li><a href="medicine.php">Medicine<i class="icofont-rounded-down"></i></a>
 												<ul class="dropdown">
-													<li><a href="404.php">404 Error</a></li>
+													<li><a href="">abcd</a></li>
+													<li><a href="">abcd</a></li>
+													<li><a href="">abcd</a></li>
 												</ul>
 											</li>
 											

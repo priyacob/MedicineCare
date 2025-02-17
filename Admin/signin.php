@@ -1,9 +1,9 @@
 <?php
-include("../includes/db.php");
+include("connect.php");
 if(isset($_POST['submit']) && isset($_POST['submit']) != null) {
-    // Fetch input and escape special characters
+    
     $email = $_POST['email'];
-    $password = md5($_POST['password']); // Hash the input password using MD5
+    $password = md5($_POST['password']); 
     $sql = "SELECT * FROM admin WHERE email = '$email' AND password = '$password'";
     $result = mysqli_query($con, $sql);
     if (mysqli_num_rows($result) > 0) {
@@ -11,7 +11,7 @@ if(isset($_POST['submit']) && isset($_POST['submit']) != null) {
         header("location:dashboard.php");
     } else {
         echo "Invalid email or password.";
-        header("location:signup.php");
+        header("location:index.php");
     }
 }
 ?>

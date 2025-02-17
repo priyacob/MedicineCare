@@ -1,3 +1,13 @@
+
+<?php
+include("../includes/db.php");
+
+$sql="SELECT * FROM medicine";
+$result = mysqli_query($con, $sql);
+
+?>
+
+
 <!DOCTYPE php>
 <php lang="en">
 <head>
@@ -107,13 +117,42 @@
                             <th>Name</th>
                             <th>Category</th>
                             <th>Price</th>
-                            <th>Stock</th>
+                            <th>Quentity</th> 
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <tbody id="products-list">
-                        <!-- AJAX Product Data Will Be Loaded Here -->
+                    <?php while($row=mysqli_fetch_assoc($result)) {?>
+                    <tbody id="products-lists">
+                      <td><?php echo $row['m_id'] ?></td>
+                      <td><img src="../img/product/<?php echo htmlspecialchars($row['image']); ?>" alt="Product Image"  style="height:60px;"/></td>
+                      <td><?php echo $row['m_name'] ?></td>
+                      <td><?php echo $row['m_category'] ?></td>
+                      <td><?php echo $row['price'] ?></td>
+                      <td><?php echo $row['qty'] ?></td>
+                      
+                      <td>
+                        
+
+                      <?php                                             
+                                          if($row['status']==0){                          
+                                             echo                                            
+                                                 "<span type='button' class='btn btn-primary'class='badge badge-complete '><a href='?type=status&operation=deactive&m_id=".$row['m_id'].
+                                             "' style='color:black;'>Active</a></span>&nbsp;";
+                                          } else {
+                                             echo "<span class='badge badge-pending' type='button' ><a href='?type=status&operation=active&m_id=".$row['m_id'].
+                                             "'>Deactive</a></span>&nbsp;";
+                                          }
+                                          echo "<span  class='btn btn-warning' class='badge badge-edit text-dark ' class='btn btn-primary'>
+                                          <a href='manage_product.php?type=delete&m_id=".$row['m_id']."'style='color:black;'>Edit</a></span>&nbsp;";
+
+                                          echo "<span  class='btn btn-danger' class='badge badge-delete' ><a href='?type=delete&m_id=".$row['m_id'].
+                                          "'style='color:black;'>Delete</a></span>";
+                                         
+                                          ?>
+                      </td>
                     </tbody>
+
+                    <?php } ?>
                 </table>
                 </div>
             </div>
