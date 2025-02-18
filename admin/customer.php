@@ -1,5 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<?php
+require ('connect.php');
+if(isset($_GET['type']) && $_GET['type']!='' ){
+    $type=$_GET['type'];
+     if($type=='delete')
+     {
+       $id=$_GET['u_id']; 
+       $delete_sql=("delete from users where u_id='$id'");
+       mysqli_query($con,$delete_sql);
+     }
+  }
+$sql="SELECT * FROM users";
+$res=mysqli_query($con,$sql);
+
+
+?>
+
+<!DOCTYPE php>
+<php lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,15 +31,15 @@
     <div class="d-flex" id="wrapper">
         <nav class="bg-light border-end" id="sidebar">
             <div class="sidebar-header text-center">
-                <h4 class="mt-3">Big Bazzar</h4>
+                <h4 class="mt-3">MedicineCare</h4>
             </div>
             <ul class="list-unstyled nav-menu">
-                <li><a href="index.html">Dashboard</a></li>
-                <li><a href="order.html">Orders</a></li>
-                <li><a href="product.html">Products</a></li>
-                <li class="active"><a href="customer.html">Customers</a></li>
-                <li><a href="notification.html">Notifications</a></li>
-                <li><a href="settings.html">Settings</a></li>
+                <li><a href="index.php">Dashboard</a></li>
+                <li><a href="order.php">Orders</a></li>
+                <li><a href="product.php">Products</a></li>
+                <li class="active"><a href="customer.php">Customers</a></li>
+                <li><a href="notification.php">Notifications</a></li>
+                <li><a href="settings.php">Settings</a></li>
             </ul> 
         </nav>
 
@@ -48,10 +66,10 @@
                             <img src="image/s boss.jpg" alt="Profile" class="rounded-circle" width="30" height="30" object-fit="cover" over-flow="hidden">
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                            <li><a class="dropdown-item" href="profile.html">Profile</a></li>
-                            <li><a class="dropdown-item" href="settings.html">Settings</a></li>
+                            <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                            <li><a class="dropdown-item" href="settings.php">Settings</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="index.html">Logout</a></li>
+                            <li><a class="dropdown-item" href="index.php">Logout</a></li>
                         </ul>
                     </div>
                 </div>
@@ -104,14 +122,35 @@
                             <th>#User ID</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>password</th>
-                            <th>Status</th>
-                            <th>Actions</th>
+                            <th>Phone</th>
+                            <th>Role</th>
+                            <th>Delete</th>
+
                         </tr>
                     </thead>
-                        <tbody id="users-list">
-                            <!-- AJAX Users Data Will Be Loaded Here -->
-                        </tbody>
+                        
+
+                        <?php 
+                        while($row=mysqli_fetch_assoc($res))
+                    
+                        {?>
+                        <tbody id="users-listt">
+                           <td><?php echo $row['u_id'] ?></td>
+                           <td><?php echo $row['u_name'] ?></td>
+                           <td><?php echo $row['email'] ?></td>
+                           <td><?php echo $row['phone'] ?></td>
+                           <td><?php echo $row['role'] ?></td>
+                           <td>
+                            <?php 
+                            echo "<span class='t-op-nextlvl label-tag' class='badge  badge-delete'><button type='button'class='btn btn-danger' style='color:black;'>
+                            <a href='?type=delete&u_id=".$row['u_id'].
+                            "'style='color:black'>Delete</a></button></span>";
+                                         
+                            ?>
+                          </td>
+                          </tbody>
+                         <?php } ?>
+                       
                 </table>
                 </div>
             </div>
@@ -122,4 +161,4 @@
     <script src="assets/js/ajax.js"></script>
     <script src="assets/js/scripts.js"></script>
 </body>
-</html>
+</php>
