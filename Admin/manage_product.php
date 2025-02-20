@@ -40,8 +40,8 @@
                     <form action="#" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="productID" class="form-label">Product ID</label>
-                                <input type="text" class="form-control" id="productID" name="productID" readonly>
+                            <label for="productID">Product ID<span class="text-danger"> *readonly</span></label>                                
+                            <input type="text" class="form-control" id="productID" name="productID" readonly>
                             </div>
                             
                             <div class="form-group col-md-6">
@@ -85,7 +85,7 @@
         </div>
     </div>
 </div>
-
+<!-- 
 <script>
     function previewImage(event) {
         const reader = new FileReader();
@@ -97,6 +97,6 @@
         reader.readAsDataURL(event.target.files[0]);
     }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script> -->
 </body>
 </html>
