@@ -20,7 +20,7 @@ include "navbar.php";
 									<a href="#" class="btn primary">Learn More</a>
 								</div>
 							</div>
-						</div>
+						</div> 
 					</div>
 				</div>
 			</div>
