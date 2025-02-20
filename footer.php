@@ -41,7 +41,7 @@
                 <div class="col-md-3">
                     <h5>Let's Stay Connected</h5>
                     <p>Enter your email to get updates</p>
-                    <div class="newsletter">
+                    <div class="newsletterr">
                         <input type="email" placeholder="Your Email">
                         <button>Submit</button>
                     </div>

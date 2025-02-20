@@ -508,9 +508,11 @@ include "navbar.php";
 					</div>
 				</div>
 			</div>
+			
 		</section>
 		<!-- /End Newsletter Area -->
+		<?php require('footer.php') ?>
 
-<?php require('footer.php') ?>
+
 
 		
