@@ -511,9 +511,11 @@ $result = mysqli_query($con, $sql);
 					</div>
 				</div>
 			</div>
+			
 		</section>
 		<!-- /End Newsletter Area -->
+		<?php require('footer.php') ?>
 
-		
+
 
 		
