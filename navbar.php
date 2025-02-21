@@ -155,7 +155,7 @@
 								<!--/ End Main Menu -->
 							</div>
 							<div class="col-lg-2 col-12">
-    <?php if(isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN']) { ?>
+    <?php if(isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'])  { ?>
         <div class="get-quote">
             <a href="logout.php" class="btn">Logout</a>
         </div>
