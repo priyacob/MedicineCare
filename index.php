@@ -1,7 +1,13 @@
-
 <?php
-include "navbar.php";	
+include('includes/db.php');
+include("navbar.php");	
+$sql = "SELECT * FROM medicine"; // Replace with your actual table name
+$result = mysqli_query($con, $sql);
 ?>
+
+
+
+
 
 	<!-- Slider Area -->
 	<section class="slider">
@@ -124,51 +130,48 @@ include "navbar.php";
 		</section>
 		<!--/ End Feautes -->
 		<main class="max-w-7xl mx-auto p-4">
-        <h2 class="text-xl font-semibold mb-4 text-blue-800">Categories</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition-shadow border border-blue-100">
-                <h3 class="font-bold text-blue-600">Anti-Acids</h3>
-            </div>
-            <div class="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition-shadow border border-blue-100">
-                <h3 class="font-bold text-blue-600">Pain Relievers</h3>
-            </div>
-            <div class="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition-shadow border border-blue-100">
-                <h3 class="font-bold text-blue-600">Cough & Cold</h3>
-            </div>
-            <div class="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition-shadow border border-blue-100">
-                <h3 class="font-bold text-blue-600">Vitamins & Supplements</h3>
-            </div>
+    <h2 class="text-xl font-semibold mb-4 text-blue-800">Categories</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition-shadow border border-blue-100">
+            <h3 class="font-bold text-blue-600">Anti-Acids</h3>
         </div>
+        <div class="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition-shadow border border-blue-100">
+            <h3 class="font-bold text-blue-600">Pain Relievers</h3>
+        </div>
+        <div class="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition-shadow border border-blue-100">
+            <h3 class="font-bold text-blue-600">Cough & Cold</h3>
+        </div>
+        <div class="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition-shadow border border-blue-100">
+            <h3 class="font-bold text-blue-600">Vitamins & Supplements</h3>
+        </div>
+    </div>
+
     <section class="mt-8">
-            <h2 class="text-xl font-semibold mb-4 text-blue-800">Featured Medicines</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                <div class="bg-white shadow-md rounded-lg p-4 text-center border border-blue-100 hover:shadow-lg transition-shadow">
-                    <img src="img/pf1.jpg" alt="Product Image" class="w-full h-32 md:h-40 object-cover rounded-t-lg mb-2">
-                    <h3 class="font-bold text-blue-600">Antacid Tablet</h3>
-                    <p class="text-gray-600">Relieves heartburn and indigestion</p>
-                    <p class="font-semibold text-blue-700">RS100.00</p>
-                    <button class="mt-2 bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition">Buy Now</button>
-                    <button class="mt-2 bg-blue-100 text-blue-600 rounded-lg px-4 py-2 hover:bg-blue-200 transition">Add to Cart</button>
-                </div>
-                <div class="bg-white shadow-md rounded-lg p-4 text-center border border-blue-100 hover:shadow-lg transition-shadow">
-                    <img src="img/blog2.jpg" alt="Product Image" class="w-full h-32 md:h-40 object-cover rounded-t-lg mb-2">
-                    <h3 class="font-bold text-blue-600">Pain Reliever</h3>
-                    <p class="text-gray-600">Effective relief from headaches</p>
-                    <p class="font-semibold text-blue-700">RS80.50</p>
-                    <button class="mt-2 bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition">Buy Now</button>
-                    <button class="mt-2 bg-blue-100 text-blue-600 rounded-lg px-4 py-2 hover:bg-blue-200 transition">Add to Cart</button>
-                </div>
-                <div class="bg-white shadow-md rounded-lg p-4 text-center border border-blue-100 hover:shadow-lg transition-shadow">
-                    <img src="img/blog3.jpg" alt="Product Image" class="w-full h-32 md:h-40 object-cover rounded-t-lg mb-2">
-                    <h3 class="font-bold text-blue-600">Vitamin C Supplement</h3>
-                    <p class="text-gray-600">Boosts immunity and overall health</p>
-                    <p class="font-semibold text-blue-700">RS150.00</p>
-                    <button class="mt-2 bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition">Buy Now</button>
-                    <button class="mt-2 bg-blue-100 text-blue-600 rounded-lg px-4 py-2 hover:bg-blue-200 transition">Add to Cart</button>
-                </div>
-            </div>
-        </section>
-    </main>
+        <h2 class="text-xl font-semibold mb-4 text-blue-800">Available Medicines</h2>
+        
+        <!-- ✅ Grid should wrap all product cards inside -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <?php 
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) { ?>
+                    <div class="bg-white shadow-md rounded-lg p-4 text-center border border-blue-100 hover:shadow-lg transition-shadow">
+                        <img src="img/fever-medicine-tablet-ptech-650.jpeg" alt="Product Image" class="w-full h-32 md:h-40 object-cover rounded-t-lg mb-2">
+                        <h3 class="font-bold text-blue-600"><?php echo htmlspecialchars($row['m_name']); ?></h3>
+                        <p class="text-gray-600"><?php echo htmlspecialchars($row['description']); ?></p>
+                        <p class="font-semibold text-blue-700">₹<?php echo number_format($row['price'], 2); ?></p>
+                        <button class="mt-2 bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition">Buy Now</button>
+                        <button class="mt-2 bg-blue-100 text-blue-600 rounded-lg px-4 py-2 hover:bg-blue-200 transition">Add to Cart</button>
+                    </div>
+            <?php 
+                }
+            } else { 
+                echo "<p class='text-center col-span-3 text-red-600'>No medicines available.</p>";
+            } 
+            ?>
+        </div>
+    </section>
+
+</main>
 		<!-- Start Fun-facts -->
 		<div id="fun-facts" class="fun-facts section overlay">
 			<div class="container">
