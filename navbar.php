@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
@@ -8,12 +11,14 @@
 		<meta name="description" content="">
 		<meta name='copyright' content=''>
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 		<!-- Title -->
         <title>Mediplus - Free Medical and Doctor Directory HTML Template.</title>
 		
 		<!-- Favicon -->
         <link rel="icon" href="img/favicon.png">
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
 		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
 		<!-- Google Fonts -->
@@ -150,10 +155,16 @@
 								<!--/ End Main Menu -->
 							</div>
 							<div class="col-lg-2 col-12">
-								<div class="get-quote">
-									<a href="appointment.html" class="btn">SignUp/SignIn</a>
-								</div>
-							</div>
+    <?php if(isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN']) { ?>
+        <div class="get-quote">
+            <a href="logout.php" class="btn">Logout</a>
+        </div>
+    <?php } else { ?>
+        <div class="get-quote">
+            <a href="login.php" class="btn">SignUp/SignIn</a>
+        </div>
+    <?php } ?>
+</div>
 						</div>
 					</div>
 				</div>
