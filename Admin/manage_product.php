@@ -113,12 +113,12 @@ $row = mysqli_fetch_assoc($query);
                             
                             <div class="form-group col-md-6">
                                 <label for="price" class="form-label">Price</label>
-                                <input type="number" class="form-control" id="price" name="price" step="0.01" value="<?php echo htmlspecialchars($row['price']); ?>" required>
+                                <input type="number" class="form-control" id="price" name="price" step="0.01" value="<?php echo htmlspecialchars($row['price']); ?>" required readonly>
                             </div>
                             
                             <div class="form-group col-md-6">
                                 <label for="quantity" class="form-label">Quantity</label>
-                                <input type="number" class="form-control" id="quantity" name="quantity" value="<?php echo htmlspecialchars($row['qty']); ?>" required>
+                                <input type="number" class="form-control" id="quantity" name="quantity" value="<?php echo htmlspecialchars($row['qty']); ?>" required readonly>
                             </div>
 
                             <div class="text-start mt-3">
