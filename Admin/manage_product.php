@@ -6,9 +6,7 @@
     <title>Update Product</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #dfeffc; /* Softer light blue background */
-        }
+       
 
         .card {
             background-color: white;
@@ -33,7 +31,7 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-10 col-lg-8">
             <div class="card shadow">
-            <div class="card-header text-center bg-info-subtle">
+            <div class="card-header text-center bg-info">
             <h2>Update Product</h2>
                 </div>
                 <div class="card-body">  
