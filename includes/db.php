@@ -1,7 +1,6 @@
 <?php
 // Ensure no whitespace before this line
 session_start();
-
 $con = mysqli_connect("localhost", "root", "", "medicinecare");
 
 if (!$con) {
