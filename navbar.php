@@ -157,11 +157,11 @@
 							<div class="col-lg-2 col-12">
     <?php if(isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'])  { ?>
         <div class="get-quote">
-            <a href="logout.php" class="btn">Logout</a>
+            <a href="logout.php" class="btn" style="color:blue;">Logout</a>
         </div>
     <?php } else { ?>
         <div class="get-quote">
-            <a href="login.php" class="btn">SignUp/SignIn</a>
+            <a href="login.php" class="btn" style="color:blue;">SignUp/SignIn</a>
         </div>
     <?php } ?>
 </div>
