@@ -145,7 +145,7 @@ $result = mysqli_query($con, $sql);
                                           echo "<span  class='btn btn-warning' class='badge badge-edit text-dark ' class='btn btn-primary'>
                                           <a href='manage_product.php?type=delete&m_id=".$row['m_id']."'style='color:black;'>Edit</a></span>&nbsp;";
 
-                                          echo "<span  class='btn btn-danger' class='badge badge-delete' ><a href='?type=delete&m_id=".$row['m_id'].
+                                          echo "<span  class='btn btn-danger' class='badge badge-delete' ><a href='delete_product.php?type=delete&m_id=".$row['m_id'].
                                           "'style='color:black;'>Delete</a></span>";
                                          
                                           ?>
