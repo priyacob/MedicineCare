@@ -1,6 +1,7 @@
 <?php
-include "navbar.php";	
 require "includes/db.php";  
+include "navbar.php";	
+
 
 // Fetch all categories
 $category_query = "SELECT DISTINCT m_category FROM medicine WHERE status = 1";
