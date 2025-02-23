@@ -123,7 +123,7 @@ $res=mysqli_query($con,$sql);
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
-                            <th>Role</th>
+      
                             <th>Delete</th>
 
                         </tr>
@@ -139,7 +139,7 @@ $res=mysqli_query($con,$sql);
                            <td><?php echo $row['u_name'] ?></td>
                            <td><?php echo $row['email'] ?></td>
                            <td><?php echo $row['phone'] ?></td>
-                           <td><?php echo $row['role'] ?></td>
+                           
                            <td>
                             <?php 
                             echo "<span class='t-op-nextlvl label-tag' class='badge  badge-delete'><button type='button'class='btn btn-danger' style='color:black;'>
