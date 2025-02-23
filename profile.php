@@ -1,94 +1,92 @@
 <?php
-require('includes/db.php'); // Database connection
-require('function.inc.php');
+session_start();
+include 'includes/db.php';
 
-if (!isset($_SESSION['USER_ID'])) {
-    header("Location: login.php"); // Redirect if not logged in
-    exit();
+$user_id = $_SESSION['user_id']; // Assuming user is logged in
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $address = mysqli_real_escape_string($con, $_POST['address']);
+    $pin_no = mysqli_real_escape_string($con, $_POST['pin_no']);
+    $landmark = mysqli_real_escape_string($con, $_POST['landmark']);
+    $state = mysqli_real_escape_string($con, $_POST['state']);
+    $flat_house_no = mysqli_real_escape_string($con, $_POST['flat_house_no']);
+
+    $update_query = "UPDATE users SET address='$address', pin_no='$pin_no', landmark='$landmark', state='$state', flat_house_no='$flat_house_no' WHERE u_id='$user_id'";
+    
+    if (mysqli_query($con, $update_query)) {
+        echo "<script>alert('Profile updated successfully!');</script>";
+    } else {
+        echo "<script>alert('Error updating profile!');</script>";
+    }
 }
 
-$user_id = $_SESSION['USER_ID'];
-
-// Fetch user details
-$query = "SELECT u_name, phone, address, state, landmark, flat_house_no, pin_no FROM users WHERE u_id=?";
-$stmt = mysqli_prepare($con, $query);
-mysqli_stmt_bind_param($stmt, "i", $user_id);
-mysqli_stmt_execute($stmt);
-$result = mysqli_stmt_get_result($stmt);
+$query = "SELECT * FROM users WHERE u_id='$user_id'";
+$result = mysqli_query($con, $query);
 $user = mysqli_fetch_assoc($result);
-
-if (!$user) {
-    echo "User not found!";
-    exit();
-}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Profile</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>User Profile</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
             background-color: #f8f9fa;
         }
-        .container {
-            max-width: 600px;
-            margin-top: 50px;
-        }
-        .card {
+        .profile-container {
+            width: 50%;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            font-weight: bold;
         }
         .btn-primary {
-            background-color: #007bff;
+            background-color: #28a745;
             border: none;
+            padding: 10px;
+            width: 100%;
+            color: white;
+            border-radius: 5px;
         }
         .btn-primary:hover {
-            background-color: #0056b3;
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <div class="card p-4">
-        <h3 class="text-center text-primary">My Profile</h3>
-        <form action="update_profile.php" method="POST">
-            <div class="mb-3">
-                <label class="form-label">Full Name</label>
-                <input type="text" name="u_name" class="form-control" value="<?= htmlspecialchars($user['u_name']) ?>" required>
+    <div class="profile-container">
+        <h2 class="text-center">User Profile</h2>
+        <form method="POST">
+            <div class="form-group">
+                <label>Address</label>
+                <input type="text" name="address" class="form-control" value="<?php echo $user['address']; ?>" required>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Phone</label>
-                <input type="text" name="phone" class="form-control" value="<?= htmlspecialchars($user['phone']) ?>" required>
+            <div class="form-group">
+                <label>Pin No</label>
+                <input type="text" name="pin_no" class="form-control" value="<?php echo $user['pin_no']; ?>" required>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Address</label>
-                <input type="text" name="address" class="form-control" value="<?= htmlspecialchars($user['address']) ?>" required>
+            <div class="form-group">
+                <label>Landmark</label>
+                <input type="text" name="landmark" class="form-control" value="<?php echo $user['landmark']; ?>">
             </div>
-            <div class="mb-3">
-                <label class="form-label">State</label>
-                <input type="text" name="state" class="form-control" value="<?= htmlspecialchars($user['state']) ?>" required>
+            <div class="form-group">
+                <label>State</label>
+                <input type="text" name="state" class="form-control" value="<?php echo $user['state']; ?>" required>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Landmark</label>
-                <input type="text" name="landmark" class="form-control" value="<?= htmlspecialchars($user['landmark']) ?>">
+            <div class="form-group">
+                <label>Flat/House No</label>
+                <input type="text" name="flat_house_no" class="form-control" value="<?php echo $user['flat_house_no']; ?>" required>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Flat/House No</label>
-                <input type="text" name="flat_house_no" class="form-control" value="<?= htmlspecialchars($user['flat_house_no']) ?>">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Pin Code</label>
-                <input type="text" name="pin_no" class="form-control" value="<?= htmlspecialchars($user['pin_no']) ?>" required>
-            </div>
-            <button type="submit" class="btn btn-primary w-100">Update Profile</button>
+            <button type="submit" class="btn-primary">Update Profile</button>
         </form>
     </div>
-</div>
-
 </body>
 </html>
