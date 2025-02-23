@@ -1467,7 +1467,7 @@ body{
 	border-radius: 3px;
 	margin: 0 0 0 -52px;
 	margin-top: 49px;
-	box-sizing: ;
+	
 }
 .testimonials .owl-dots .owl-dot {
 	display: inline-block;
@@ -1551,7 +1551,7 @@ body{
 	color: #868686;
 	margin-top: 3px;
 }
-.departments .department-tab .tab-pane .department-left{}
+
 .departments .department-tab .tab-pane .department-left h3{
 	color:#2C2D3F;
 	font-weight:600;
@@ -1577,7 +1577,7 @@ body{
 .departments .department-tab .tab-pane .department-left p {
 	margin-bottom: 20px;
 }
-.departments .department-tab .tab-pane .department-left .list{}
+
 .departments .department-tab .tab-pane .department-left .list li{
 	position:relative;
 	padding-left: 30px;
@@ -1721,9 +1721,7 @@ body{
 	padding:100px 0px;
 	position:relative;
 }
-.clients .single-clients{
-	
-}
+
 .clients .single-clients img {
 	width: 100%;
 	cursor: pointer;
@@ -1925,9 +1923,7 @@ body{
 	color: #2C2D3F;
 	margin-top: 30px;
 }
-.doctor-details-item .doctor-details-work .time-sidual{
-	
-}
+
 .doctor-details-item .doctor-details-work .time-sidual{
 	overflow:hidden;
 }
@@ -1950,9 +1946,7 @@ body{
 	padding-left: 60px;
 	padding-top: 70px;
 }
-.doctor-details-item .doctor-details-biography {
- 
-}
+
 .doctor-details-item .doctor-details-biography h3 {
   font-weight: 600;
   font-size: 24px;
