@@ -1,3 +1,13 @@
+<?php
+include("../includes/db.php");
+
+$sql="SELECT * FROM admin where id=1 ";
+$result = mysqli_query($con, $sql);
+?>
+
+
+
+
 <!DOCTYPE php>
 <php lang="en">
 <head>
@@ -42,14 +52,19 @@
                             <img id="profile-img" src="assets/images/user.png"height="120" width="120" class="rounded-circle profile-img" alt="Profile Picture">
                         </div>
                 
+
+                        <?php while($row=mysqli_fetch_assoc($result))
+                        {?>
                         <!-- Profile Details -->
-                        <h4 id="profile-name" class="mt-3">Loading...</h4>
-                        <p id="profile-email">Loading...</p>
-                        <p id="profile-role" class="text-muted">Loading...</p>
+                        <h4  class="mt-3"><?php echo $row['username'] ?></h4>
+                        <p><?php echo $row['email'] ?></p>
+                        <p class="text-muted">Admin</p>
+                        <?php } ?>
                         <button class="btn btn-primary mt-3" id="edit-profile"><i class="fas fa-user-edit"></i> Edit Profile</button>
                     </div>
                 </div>
                 
+               
                 <!-- Font Awesome Icons -->
                 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
                 
