@@ -1,5 +1,7 @@
-<?
-$name = $_POST{'name'};
+
+
+<? include "includes\db.php"
+$mname = $_POST{'name'};
 $email = $_POST{'email'};
 $phone = $_POST{'phone'};
 $subject = $_POST{'subject'};
@@ -7,7 +9,7 @@ $message = $_POST['message'];
 
 $email_message = "
 
-Name: ".$name."
+Name: ".$mname."
 Email: ".$email."
 Phone: ".$phone."
 Subject: ".$subject."
