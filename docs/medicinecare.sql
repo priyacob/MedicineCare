@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2025 at 07:02 AM
+-- Generation Time: Feb 20, 2025 at 04:37 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -35,6 +35,13 @@ CREATE TABLE `admin` (
   `phone` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `username`, `email`, `password`, `phone`) VALUES
+(1, 'priya', 'priyamitra0606@gmail.com', '12345678', '8597911631');
+
 -- --------------------------------------------------------
 
 --
@@ -65,8 +72,18 @@ CREATE TABLE `medicine` (
   `qty` varchar(10) NOT NULL,
   `sort_description` varchar(100) NOT NULL,
   `added_on` date NOT NULL,
-  `status` tinyint(1) NOT NULL
+  `status` tinyint(1) NOT NULL,
+  `image` varchar(200) NOT NULL,
+  `expiryDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `medicine`
+--
+
+INSERT INTO `medicine` (`m_id`, `m_name`, `m_category`, `mrp`, `price`, `description`, `qty`, `sort_description`, `added_on`, `status`, `image`, `expiryDate`) VALUES
+(1, 'Adderall', 'Tablet', 55, 55, 'af', '16', 'afa', '2025-02-17', 0, '129445462_pexels-photo-589840.jpeg', '2025-02-17'),
+(2, 'Lyrica', 'Tablet', 100, 99, 'jhkh', '5', 'jk', '2025-02-18', 0, '129445462_pexels-photo-589840.jpeg', '2025-02-18');
 
 -- --------------------------------------------------------
 
@@ -150,7 +167,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
@@ -162,7 +179,7 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `medicine`
 --
 ALTER TABLE `medicine`
-  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `orders`

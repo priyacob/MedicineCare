@@ -1,7 +1,13 @@
-
 <?php
-include "navbar.php";	
+include('includes/db.php');
+include("navbar.php");	
+$sql = "SELECT * FROM medicine"; // Replace with your actual table name
+$result = mysqli_query($con, $sql);
 ?>
+
+
+
+
 
 	<!-- Slider Area -->
 	<section class="slider">
@@ -123,7 +129,49 @@ include "navbar.php";
 			</div>
 		</section>
 		<!--/ End Feautes -->
-		
+		<main class="max-w-7xl mx-auto p-4">
+    <h2 class="text-xl font-semibold mb-4 text-blue-800">Categories</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition-shadow border border-blue-100">
+            <h3 class="font-bold text-blue-600">Anti-Acids</h3>
+        </div>
+        <div class="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition-shadow border border-blue-100">
+            <h3 class="font-bold text-blue-600">Pain Relievers</h3>
+        </div>
+        <div class="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition-shadow border border-blue-100">
+            <h3 class="font-bold text-blue-600">Cough & Cold</h3>
+        </div>
+        <div class="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition-shadow border border-blue-100">
+            <h3 class="font-bold text-blue-600">Vitamins & Supplements</h3>
+        </div>
+    </div>
+
+    <section class="mt-8">
+        <h2 class="text-xl font-semibold mb-4 text-blue-800">Available Medicines</h2>
+        
+        <!-- ✅ Grid should wrap all product cards inside -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <?php 
+            if ($result && mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) { ?>
+                    <div class="bg-white shadow-md rounded-lg p-4 text-center border border-blue-100 hover:shadow-lg transition-shadow">
+                        <img src="img/fever-medicine-tablet-ptech-650.jpeg" alt="Product Image" class="w-full h-32 md:h-40 object-cover rounded-t-lg mb-2">
+                        <h3 class="font-bold text-blue-600"><?php echo htmlspecialchars($row['m_name']); ?></h3>
+                        <p class="text-gray-600"><?php echo htmlspecialchars($row['description']); ?></p>
+                        <p class="font-semibold text-blue-700">₹<?php echo number_format($row['price'], 2); ?></p>
+                        <button class="mt-2 bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition">Buy Now</button>
+                        <button class="mt-2 bg-blue-100 text-blue-600 rounded-lg px-4 py-2 hover:bg-blue-200 transition">Add to Cart</button>
+                    </div>
+            <?php 
+                }
+            } else { 
+                echo "<p class='text-center col-span-3 text-red-600'>No medicines available.</p>";
+            } 
+            ?>
+        </div>
+    </section>
+
+</main>
 		<!-- Start Fun-facts -->
 		<div id="fun-facts" class="fun-facts section overlay">
 			<div class="container">
@@ -554,96 +602,11 @@ include "navbar.php";
 					</div>
 				</div>
 			</div>
+			
 		</section>
 		<!-- /End Newsletter Area -->
+		<?php require('footer.php') ?>
+
+
+
 		
-		<!-- Footer Area -->
-		<footer id="footer" class="footer ">
-			<!-- Footer Top -->
-			<div class="footer-top">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-3 col-md-6 col-12">
-							<div class="single-footer">
-								<h2>About Us</h2>
-								<p>Lorem ipsum dolor sit am consectetur adipisicing elit do eiusmod tempor incididunt ut labore dolore magna.</p>
-								<!-- Social -->
-								<ul class="social">
-									<li><a href="#"><i class="icofont-facebook"></i></a></li>
-									<li><a href="#"><i class="icofont-google-plus"></i></a></li>
-									<li><a href="#"><i class="icofont-twitter"></i></a></li>
-									<li><a href="#"><i class="icofont-vimeo"></i></a></li>
-									<li><a href="#"><i class="icofont-pinterest"></i></a></li>
-								</ul>
-								<!-- End Social -->
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 col-12">
-							<div class="single-footer f-link">
-								<h2>Quick Links</h2>
-								<div class="row">
-									<div class="col-lg-6 col-md-6 col-12">
-										<ul>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Services</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Our Cases</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Other Links</a></li>	
-										</ul>
-									</div>
-									<div class="col-lg-6 col-md-6 col-12">
-										<ul>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Consuling</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Finance</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Testimonials</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>FAQ</a></li>
-											<li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Contact Us</a></li>	
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 col-12">
-							<div class="single-footer">
-								<h2>Open Hours</h2>
-								<p>Lorem ipsum dolor sit ame consectetur adipisicing elit do eiusmod tempor incididunt.</p>
-								<ul class="time-sidual">
-									<li class="day">Monday - Fridayp <span>8.00-20.00</span></li>
-									<li class="day">Saturday <span>9.00-18.30</span></li>
-									<li class="day">Monday - Thusday <span>9.00-15.00</span></li>
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 col-12">
-							<div class="single-footer">
-								<h2>Newsletter</h2>
-								<p>subscribe to our newsletter to get allour news in your inbox.. Lorem ipsum dolor sit amet, consectetur adipisicing elit,</p>
-								<form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
-									<input name="email" placeholder="Email Address" class="common-input" onfocus="this.placeholder = ''"
-										onblur="this.placeholder = 'Your email address'" required="" type="email">
-									<button class="button"><i class="icofont icofont-paper-plane"></i></button>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--/ End Footer Top -->
-			<!-- Copyright -->
-			<div class="copyright">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-12 col-md-12 col-12">
-							<div class="copyright-content">
-								<p>© Copyright 2018  |  All Rights Reserved by <a href="https://www.wpthemesgrid.com" target="_blank">wpthemesgrid.com</a> </p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--/ End Copyright -->
-		</footer>
-		<!--/ End Footer Area -->
-		
-		<!-- jquery Min JS -->
-       
