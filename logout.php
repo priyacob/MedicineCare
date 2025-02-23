@@ -1,6 +1,5 @@
 <?php
-require('includes/db.php');
-require('function.inc.php');
+session_start();
 unset($_SESSION['USER_LOGIN']);
 unset($_SESSION['USER_ID']);
 unset($_SESSION['USER_NAME']);
