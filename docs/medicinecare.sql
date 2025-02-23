@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2025 at 04:37 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Feb 23, 2025 at 05:35 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `admin` (
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `phone` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `admin`
@@ -54,7 +54,7 @@ CREATE TABLE `contact_us` (
   `email` varchar(50) NOT NULL,
   `phone` varchar(10) NOT NULL,
   `add_on` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -75,15 +75,19 @@ CREATE TABLE `medicine` (
   `status` tinyint(1) NOT NULL,
   `image` varchar(200) NOT NULL,
   `expiryDate` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `medicine`
 --
 
 INSERT INTO `medicine` (`m_id`, `m_name`, `m_category`, `mrp`, `price`, `description`, `qty`, `sort_description`, `added_on`, `status`, `image`, `expiryDate`) VALUES
-(1, 'Adderall', 'Tablet', 55, 55, 'af', '16', 'afa', '2025-02-17', 0, '129445462_pexels-photo-589840.jpeg', '2025-02-17'),
-(2, 'Lyrica', 'Tablet', 100, 99, 'jhkh', '5', 'jk', '2025-02-18', 0, '129445462_pexels-photo-589840.jpeg', '2025-02-18');
+(3, 'Paracetamol', 'Pain Reliever', '50', '45', 'Used to reduce fever and relieve mild pain.', '100', 'Pain relief tablet', '2025-02-20', 1, 'paracetamol.jpg', '2026-12-31'),
+(4, 'Cough Syrup', 'Cough & Cold', '120', '110', 'Effective relief from cough and throat irritation.', '50', 'Syrup for cough relief', '2025-02-20', 1, 'cough_syrup.jpg', '2026-08-15'),
+(5, 'Vitamin C Tablets', 'Vitamins & Supplements', '200', '180', 'Boosts immunity and overall health.', '75', 'Vitamin C immunity booster', '2025-02-20', 1, 'vitamin_c.jpg', '2027-03-10'),
+(6, 'Antacid Tablet', 'Anti-Acids', '90', '85', 'Relieves acidity and heartburn.', '80', 'Acidity relief tablet', '2025-02-20', 1, 'antacid.jpg', '2026-09-25'),
+(7, 'Ibuprofen', 'Pain Reliever', '150', '140', 'Reduces pain, inflammation, and fever.', '60', 'Pain relief and anti-inflammatory', '2025-02-20', 1, 'ibuprofen.jpg', '2027-01-05'),
+(8, 'Multivitamin Capsules', 'Vitamins & Supplements', '250', '230', 'Essential vitamins and minerals for daily health.', '90', 'Daily health supplement', '2025-02-20', 1, 'multivitamin.jpg', '2027-06-30');
 
 -- --------------------------------------------------------
 
@@ -106,7 +110,7 @@ CREATE TABLE `orders` (
   `phone` varchar(10) NOT NULL,
   `o_email` varchar(50) NOT NULL,
   `full_address` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -122,8 +126,22 @@ CREATE TABLE `users` (
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `phone` varchar(10) NOT NULL,
-  `status` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `status` tinyint(1) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `state` varchar(100) NOT NULL,
+  `landmark` varchar(255) NOT NULL,
+  `flat_house_no` varchar(50) NOT NULL,
+  `pin_no` varchar(10) NOT NULL,
+  `added_on` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`u_id`, `u_name`, `m_id`, `o_id`, `email`, `password`, `phone`, `status`, `address`, `state`, `landmark`, `flat_house_no`, `pin_no`, `added_on`) VALUES
+(2, 'priya', 0, 0, 'priyamitra0606@gmail.com', '25d55ad283aa400af464c76d713c07ad', '8597791631', 0, '', '', '', '', '', '2025-02-21'),
+(3, 'rickbose', 0, 0, 'rickbose85@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '555555555', 0, 'sdgffkfy', 'fgmfc', 'sad', 'tttttt', '5555', '2025-02-22');
 
 --
 -- Indexes for dumped tables
@@ -179,7 +197,7 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `medicine`
 --
 ALTER TABLE `medicine`
-  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `m_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -191,7 +209,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `u_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
