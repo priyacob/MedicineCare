@@ -1,7 +1,10 @@
 <?php
-include("../includes/db.php");
 include("nav.php");
-$sql="SELECT * FROM admin where id=2 ";
+include("../includes/db.php");
+
+
+$admin_id=$_SESSION['ADMIN_ID'];
+$sql="SELECT * FROM admin where id= $admin_id";
 $result = mysqli_query($con, $sql);
 ?>
 
@@ -28,7 +31,7 @@ $result = mysqli_query($con, $sql);
 
                         <?php while($row=mysqli_fetch_assoc($result))
                         {?>
-                        <!-- Profile Details -->
+                  
                         <h4  class="mt-3"><?php echo $row['username'] ?></h4>
                         <p><?php echo $row['email'] ?></p>
                         <p class="text-muted">Admin</p>
