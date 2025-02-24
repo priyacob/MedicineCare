@@ -3,9 +3,8 @@ include "navbar.php";
 require "includes/db.php";  
 if (!isset($_SESSION['USER_LOGIN'])) {
     echo "<script>window.location.href = 'login.php';</script>";
-    exit(); // Ensure that no further code executes after the redirect
+    exit();
 }
-
 
 // Fetch all categories
 $category_query = "SELECT DISTINCT m_category FROM medicine WHERE status = 1";
@@ -16,10 +15,10 @@ $medicine_query = "SELECT * FROM medicine WHERE status = 1 ORDER BY added_on DES
 $medicine_result = mysqli_query($con, $medicine_query);
 ?>
 
-    <title>Medicine Shop</title>
+<title>Medicine Shop</title>
 <body class="bg-blue-50">
 
-<!-- Search & Category Filter -->
+<!-- Navbar with Cart Button -->
 <header class="bg-white shadow-md p-4 border-b-2 border-blue-200">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between">
         <h1 class="text-2xl font-bold text-blue-700">Medicine Shop</h1>
@@ -39,7 +38,16 @@ $medicine_result = mysqli_query($con, $medicine_query);
                 <option value="<?php echo $category['m_category']; ?>"><?php echo $category['m_category']; ?></option>
             <?php } ?>
         </select>
+
+        <!-- Cart Button -->
+        <a href="cart.php" class="relative flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M3 3h2l1 5h13l1-5h2M7 10v9a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-9M5 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2m14 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2"></path>
+            </svg>
+            Cart <span id="cart-count" class="ml-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">0</span>
+        </a>
     </div>
+</header>
 
 <!-- Medicines Section -->
 <main class="max-w-7xl mx-auto p-4">
@@ -56,19 +64,29 @@ $medicine_result = mysqli_query($con, $medicine_query);
                 <p class="text-sm text-gray-500">Category: <?php echo $medicine['m_category']; ?></p>
                 <p class="text-sm text-gray-500">Expiry: <?php echo date("d M Y", strtotime($medicine['expiryDate'])); ?></p>
                 <button class="mt-2 bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition">Buy Now</button>
-                <button class="mt-2 bg-blue-100 text-blue-600 rounded-lg px-4 py-2 hover:bg-blue-200 transition">Add to Cart</button>
+                <button class="add-to-cart mt-2 bg-blue-100 text-blue-600 rounded-lg px-4 py-2 hover:bg-blue-200 transition" data-m_id="<?php echo $medicine['m_id']; ?>">Add to Cart</button>
             </div>
         <?php } ?>
     </div>
 </main>
 
-<?php
-include 'footer.php'
+<?php include 'footer.php'; ?>
 
-?>
-<!-- JavaScript for Filtering -->
+<!-- JavaScript for Filtering & Add to Cart -->
 <script>
-   document.getElementById('searchBox').addEventListener('input', function() {
+function updateCartCount() {
+    fetch("cart_count.php")
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("cart-count").innerText = data.count;
+    })
+    .catch(error => console.error("Error updating cart count:", error));
+}
+
+// Fetch initial cart count on page load
+updateCartCount();
+
+document.getElementById('searchBox').addEventListener('input', function() {
     filterMedicines();
 });
 
@@ -96,6 +114,30 @@ function filterMedicines() {
     });
 }
 
+// Add to Cart Functionality
+document.querySelectorAll(".add-to-cart").forEach(button => {
+    button.addEventListener("click", function () {
+        let m_id = this.getAttribute("data-m_id");
+
+        fetch("add_to_cart.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: "m_id=" + m_id
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("Item added to cart successfully!");
+                updateCartCount();
+            } else {
+                alert("Error: " + data.message);
+            }
+        })
+        .catch(error => console.error("Error:", error));
+    });
+});
 </script>
 
 </body>

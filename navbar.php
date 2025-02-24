@@ -56,10 +56,7 @@ session_start();
 		
     </head>
     <body>
-	
-		
-	
-		<!-- Header Area -->
+	<!-- Header Area -->
 		<header class="header" >
 			<!-- End Topbar -->
 			<!-- Header Inner -->
@@ -101,6 +98,7 @@ session_start();
 								</div>
 								<!--/ End Main Menu -->
 							</div>
+							
 							<div class="col-lg-2 col-12" style="margin-top:20px ;">
     <?php if(isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'])  { ?>
         <div class="">
