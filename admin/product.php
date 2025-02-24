@@ -61,7 +61,8 @@ $result = mysqli_query($con, $sql);
                     <?php while ($row = mysqli_fetch_assoc($result)) { ?>
                         <tr>
                             <td><?php echo $row['m_id']; ?></td>
-                            <td><img src="../img/product/<?php echo htmlspecialchars($row['image']); ?>" alt="Product Image" style="height:60px;"></td>
+                            <td><img src="../img/product/<?php echo htmlspecialchars($row['image']); ?>" 
+                            alt="Product Image" style="height:60px;height: 60px;width: 60px;object-fit: cover;"></td>
                             <td><?php echo $row['m_name']; ?></td>
                             <td><?php echo $row['m_category']; ?></td>
                             <td><?php echo $row['price']; ?></td>
@@ -72,7 +73,7 @@ $result = mysqli_query($con, $sql);
                                 <a href="manage_product.php?m_id=<?php echo $row['m_id']; ?>" class="btn btn-warning">
         <i class="fas fa-edit"></i> 
     </a>
-    <a href="?type=delete&m_id=<?php echo $row['m_id']; ?>" class="btn btn-danger" 
+    <a href="delete_product.php?m_id=<?php echo $row['m_id']; ?>" class="btn btn-danger" 
        onclick="return confirm('Are you sure you want to delete this order?');">
         <i class="fas fa-trash-alt"></i> 
     </a>
