@@ -47,25 +47,32 @@ $medicine_result = mysqli_query($con, $medicine_query);
 </header>
 
 <!-- Medicines Section -->
+
 <main class="max-w-7xl mx-auto p-4">
     <h2 class="text-xl font-semibold mb-4 text-blue-800">Available Medicines</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6" id="medicineContainer">
-        <?php while ($medicine = mysqli_fetch_assoc($medicine_result)) { ?>
+    <form method="POST" action="mycart.php">
+    <?php while ($medicine = mysqli_fetch_assoc($medicine_result)) { ?>
             <div class="medicine-item bg-white shadow-md rounded-lg p-4 text-center border border-blue-100 hover:shadow-lg transition-shadow"
                  data-category="<?php echo strtolower($medicine['m_category']); ?>"
+                 <input type="hidden" name="m_id" value="<?php $row['m_id'];?>">
                  data-name="<?php echo strtolower($medicine['m_name']); ?>">
                 <img src="img/<?php echo $medicine['image']; ?>" alt="Product Image" class="w-full h-32 md:h-40 object-cover rounded-t-lg mb-2">
-                <h3 class="font-bold text-blue-600"><?php echo $medicine['m_name']; ?></h3>
+                <h3 name="m_name" class="font-bold text-blue-600"><?php echo $medicine['m_name']; ?></h3>
                 <p class="text-gray-600"><?php echo $medicine['sort_description']; ?></p>
-                <p class="font-semibold text-blue-700">₹<?php echo $medicine['price']; ?></p>
+                <p name="pirice" class="font-semibold text-blue-700">₹<?php echo $medicine['price']; ?></p>
                 <p class="text-sm text-gray-500">Category: <?php echo $medicine['m_category']; ?></p>
-                <p class="text-sm text-gray-500">Expiry: <?php echo date("d M Y", strtotime($medicine['expiryDate'])); ?></p>
+                <input type="hidden" name="qty" value="<?php $row['qty'];?>">
+                
                 <button class="mt-2 bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition">Buy Now</button>
-                <button class="mt-2 bg-blue-100 text-blue-600 rounded-lg px-4 py-2 hover:bg-blue-200 transition">Add to Cart</button>
+                <button type="submit" name="Add_To_Cart" class="mt-2 bg-blue-100 text-blue-600 rounded-lg px-4 py-2 hover:bg-blue-200 transition">Add to Cart</button>
             </div>
+     
+        </form>
         <?php } ?>
     </div>
 </main>
+
 
 <!-- JavaScript for Filtering -->
 <script>
