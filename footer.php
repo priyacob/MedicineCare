@@ -16,30 +16,28 @@
                 <div class="col-md-3">
                     <h5>Shop Medicines</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">All Medicines</a></li>
-                        <li><a href="#">Health Supplements</a></li>
+                        <li><a href="medicine.php">All Medicines</a></li>
+                        <!-- <li><a href="#">Health Supplements</a></li>
                         <li><a href="#">Medical Devices</a></li>
-                        <li><a href="#">Personal Care</a></li>
+                        <li><a href="#">Personal Care</a></li> -->
                     </ul>
                 </div>
                 <div class="col-md-3">
                     <h5>Learn</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">Health Tips</a></li>
-                        <li><a href="#">Medicine Guide</a></li>
-                        <li><a href="#">Doctor Consultation</a></li>
+                        <li><a href="hadi.php">Health Articles Diseases Information</a></li>
+                        <li><a href="racp.php">Return and Cancellation Policy</a></li>
+                        <li><a href="tnc.php">Terms & Conditions</a></li>
+                        <li><a href="policies.php">Policies</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
                     <h5>More from Us</h5>
                     <ul class="list-unstyled">
 
+                        <li><a href="needhelp.php">Need Help</a></li>
                         <li><a href="aboutus.php">About Us</a></li>
-                        
-
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Affiliate</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="contact.php">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3">
@@ -59,7 +57,7 @@
                 </div>
             </div>
             <div class="text-center mt-3">
-                <small>© 2025 Your Medicine Shop | <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a></small>
+                <small>© 2025 Your Medicine Shop | <a href="tnc.php">Terms & Conditions</a> | <a href="privacypolicy.php">Privacy Policy </a>| <a href="racp.php">Return and Cancellation Policy</a></small>
             </div>
         </div>
     </footer>

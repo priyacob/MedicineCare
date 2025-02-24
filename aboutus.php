@@ -60,7 +60,7 @@
       </ul>
       <div class="cta mt-4">
         <a href="#" class="btn">Join Our Team</a>
-        <a href="/index.php" class="btn">Shop Now</a>
+        <a href="index.php" class="btn">Shop Now</a>
       </div>
     </div>
   </section>

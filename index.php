@@ -191,7 +191,7 @@ $result = mysqli_query($con, $sql);
     </div>    
 </section>    
 <!--/ End Pricing Table -->
+
 <?php
 include 'footer.php'
-
 ?>

@@ -1,10 +1,10 @@
 <?php
 include "navbar.php";	
 require "includes/db.php";  
-if (!isset($_SESSION['USER_LOGIN'])) {
-    header("Location: login.php");
-    exit(); // Ensure that no further code executes after the redirect
-}
+// if (!isset($_SESSION['USER_LOGIN'])) {
+//     header("Location: login.php");
+//     exit(); // Ensure that no further code executes after the redirect
+// }
 
 
 // Fetch all categories
@@ -104,3 +104,6 @@ function filterMedicines() {
 
 </body>
 </html>
+<?php
+  include 'footer.php';
+?>
