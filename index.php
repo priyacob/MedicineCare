@@ -6,10 +6,6 @@ $sql = "SELECT * FROM medicine"; // Replace with your actual table name
 $result = mysqli_query($con, $sql);
 ?>
 
-
-
-
-
 	<!-- Slider Area -->
 	<section class="slider">
 		<div class="hero-slider">

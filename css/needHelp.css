@@ -1,0 +1,216 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #2C2D3F;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Header */
+  header {
+    background-color: #1A76D1;
+    color: white;
+    padding: 20px 0;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Need Help Section */
+  .need-help {
+    padding: 60px 0;
+  }
+  
+  .need-help h1 {
+    font-size: 36px;
+    color: #1A76D1;
+    margin-bottom: 10px;
+  }
+  
+  .need-help .tagline {
+    font-size: 18px;
+    color: #2C2D3F;
+    margin-bottom: 30px;
+  }
+  
+  /* FAQ Section */
+  .faq {
+    margin-bottom: 40px;
+  }
+  
+  .faq h2 {
+    font-size: 24px;
+    color: #1A76D1;
+    margin-bottom: 20px;
+  }
+  
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .faq-item {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+  }
+  
+  .faq-question h3 {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .faq-question i {
+    font-size: 16px;
+    transition: transform 0.3s;
+  }
+  
+  .faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  }
+  
+  .faq-answer p {
+    font-size: 16px;
+    margin: 15px 0;
+  }
+  
+  .faq-item.active .faq-question i {
+    transform: rotate(180deg);
+  }
+  
+  .faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 15px 20px;
+  }
+  
+  /* Contact Us Form */
+  .contact-us {
+    margin-bottom: 40px;
+  }
+  
+  .contact-us h2 {
+    font-size: 24px;
+    color: #1A76D1;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+  }
+  
+  .btn {
+    background-color: #1A76D1;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #2C2D3F;
+  }
+  
+  /* Live Chat Button */
+  .live-chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .chat-btn {
+    background-color: #1A76D1;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+  }
+  
+  .chat-btn:hover {
+    background-color: #2C2D3F;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #2C2D3F;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 60px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  
+    .faq-question h3 {
+      font-size: 16px;
+    }
+  }

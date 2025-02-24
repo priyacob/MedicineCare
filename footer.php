@@ -32,7 +32,7 @@
                 <div class="col-md-3">
                     <h5>More from Us</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#">About Us</a></li>
+                        <li><a href="aboutus.php">About Us</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Affiliate</a></li>
                         <li><a href="#">Contact</a></li>
