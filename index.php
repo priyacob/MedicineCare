@@ -1,14 +1,11 @@
+<!-- 20 data inserted medicine       index.php -->
+
 <?php
 include('includes/db.php');
 include("navbar.php");	
 $sql = "SELECT * FROM medicine"; // Replace with your actual table name
 $result = mysqli_query($con, $sql);
 ?>
-
-
-
-
-
 	<!-- Slider Area -->
 	<section class="slider">
 		<div class="hero-slider">
@@ -145,35 +142,24 @@ $result = mysqli_query($con, $sql);
                 <h3 class="font-bold text-blue-600">Vitamins & Supplements</h3>
             </div>
         </div>
-    <section class="mt-8">
-            <h2 class="text-xl font-semibold mb-4 text-blue-800">Featured Medicines</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                <div class="bg-white shadow-md rounded-lg p-4 text-center border border-blue-100 hover:shadow-lg transition-shadow">
-                    <img src="img/pf1.jpg" alt="Product Image" class="w-full h-32 md:h-40 object-cover rounded-t-lg mb-2">
-                    <h3 class="font-bold text-blue-600">Antacid Tablet</h3>
-                    <p class="text-gray-600">Relieves heartburn and indigestion</p>
-                    <p class="font-semibold text-blue-700">RS100.00</p>
-                    <button class="mt-2 bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition">Buy Now</button>
-                    <button class="mt-2 bg-blue-100 text-blue-600 rounded-lg px-4 py-2 hover:bg-blue-200 transition">Add to Cart</button>
-                </div>
-                <div class="bg-white shadow-md rounded-lg p-4 text-center border border-blue-100 hover:shadow-lg transition-shadow">
-                    <img src="img/blog2.jpg" alt="Product Image" class="w-full h-32 md:h-40 object-cover rounded-t-lg mb-2">
-                    <h3 class="font-bold text-blue-600">Pain Reliever</h3>
-                    <p class="text-gray-600">Effective relief from headaches</p>
-                    <p class="font-semibold text-blue-700">RS80.50</p>
-                    <button class="mt-2 bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition">Buy Now</button>
-                    <button class="mt-2 bg-blue-100 text-blue-600 rounded-lg px-4 py-2 hover:bg-blue-200 transition">Add to Cart</button>
-                </div>
-                <div class="bg-white shadow-md rounded-lg p-4 text-center border border-blue-100 hover:shadow-lg transition-shadow">
-                    <img src="img/blog3.jpg" alt="Product Image" class="w-full h-32 md:h-40 object-cover rounded-t-lg mb-2">
-                    <h3 class="font-bold text-blue-600">Vitamin C Supplement</h3>
-                    <p class="text-gray-600">Boosts immunity and overall health</p>
-                    <p class="font-semibold text-blue-700">RS150.00</p>
-                    <button class="mt-2 bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition">Buy Now</button>
-                    <button class="mt-2 bg-blue-100 text-blue-600 rounded-lg px-4 py-2 hover:bg-blue-200 transition">Add to Cart</button>
-                </div>
+		<section class="mt-8">
+    <h2 class="text-xl font-semibold mb-4 text-blue-800">Medicine List</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <?php while ($row = mysqli_fetch_assoc($result)) { ?>
+            <div class="bg-white shadow-md rounded-lg p-4 text-center border border-blue-100 hover:shadow-lg transition-shadow">
+                <img src="<?php echo !empty($row['image']) ? 'img/product/' . htmlspecialchars($row['image']) : 'img/default.jpg'; ?>" 
+                     alt="<?php echo htmlspecialchars($row['m_name']); ?>" 
+                     class="w-full h-32 md:h-40 object-cover rounded-t-lg mb-2"
+                     onerror="this.onerror=null;this.src='img/default.jpg';">
+                <h3 class="font-bold text-blue-600"><?php echo htmlspecialchars($row['m_name']); ?></h3>
+                <p class="text-gray-600"><?php echo htmlspecialchars($row['description']); ?></p>
+                <p class="font-semibold text-blue-700">₹<?php echo number_format($row['price'], 2); ?></p>
+                <button class="mt-2 bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition">Buy Now</button>
+                <button class="mt-2 bg-blue-100 text-blue-600 rounded-lg px-4 py-2 hover:bg-blue-200 transition">Add to Cart</button>
             </div>
-        </section>
+        <?php } ?>
+    </div>
+</section>
     </main>
 		<!-- Start Fun-facts -->
 		<div id="fun-facts" class="fun-facts section overlay">
