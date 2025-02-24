@@ -203,7 +203,7 @@ include 'footer.php'
         document.querySelectorAll(".add-to-cart").forEach(button => {
             button.addEventListener("click", function () {
                 let m_id = this.getAttribute("data-m_id"); // Get medicine ID
-                let u_id = "<?php echo $_SESSION['USER_ID'] ?? ''; ?>"; // Get user ID (from PHP session)
+                let u_id = "<?php echo $_SESSION['uid']  ?? ''; ?>"; // Get user ID (from PHP session)
 
                 if (!u_id) {
                     alert("Please log in to add items to the cart.");

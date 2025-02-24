@@ -4,14 +4,14 @@ include('includes/db.php'); // Ensure this is correct
 
 header('Content-Type: application/json');
 
-if (!isset($_SESSION['USER_ID'])) {
+if (!isset($_SESSION['uid'])) {
     echo json_encode(['success' => false, 'message' => 'User not logged in']);
     exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $m_id = $_POST['m_id'] ?? null;
-    $u_id = $_SESSION['USER_ID'];
+    $u_id = $_SESSION['uid'];
 
     if (!$m_id) {
         echo json_encode(['success' => false, 'message' => 'Medicine ID missing']);
