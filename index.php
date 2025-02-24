@@ -2,15 +2,11 @@
 
 include('includes/db.php');
 include 'navbar.php';
-$sql = "SELECT * FROM medicine"; // Replace with your actual table name
+$sql = "SELECT * FROM medicine"; 
 $result = mysqli_query($con, $sql);
 ?>
 
 
-
-
-
-	<!-- Slider Area -->
 <section class="slider">
     <div class="hero-slider">
         <!-- Start Single Slider -->
@@ -50,7 +46,7 @@ $result = mysqli_query($con, $sql);
         </div>
         <!-- End Single Slider -->
         <!-- Start Single Slider -->
-        <div class="single-slider" style="background-image:url('img/pharmacy3.jpg')">
+        <div class="single-slider" style="background-image:url('img/signup-bg.jpg')">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7">
@@ -77,21 +73,8 @@ $result = mysqli_query($con, $sql);
 
  <!-- card finish -->
 		<main class="max-w-7xl mx-auto p-4">
-        <h2 class="text-xl font-semibold mb-4 text-blue-800">Categories</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition-shadow border border-blue-100">
-                <h3 class="font-bold text-blue-600">Anti-Acids</h3>
-            </div>
-            <div class="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition-shadow border border-blue-100">
-                <h3 class="font-bold text-blue-600">Pain Relievers</h3>
-            </div>
-            <div class="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition-shadow border border-blue-100">
-                <h3 class="font-bold text-blue-600">Cough & Cold</h3>
-            </div>
-            <div class="bg-white shadow-md rounded-lg p-4 text-center hover:shadow-lg transition-shadow border border-blue-100">
-                <h3 class="font-bold text-blue-600">Vitamins & Supplements</h3>
-            </div>
-        </div>
+
+       
         <section class="mt-8">
     <h2 class="text-xl font-semibold mb-4 text-blue-800">Medicine List</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -208,3 +191,7 @@ $result = mysqli_query($con, $sql);
     </div>    
 </section>    
 <!--/ End Pricing Table -->
+<?php
+include 'footer.php'
+
+?>

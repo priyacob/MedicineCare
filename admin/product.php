@@ -1,6 +1,7 @@
 <?php
 include("../includes/db.php");
 include("nav.php");
+
 $sql = "SELECT * FROM medicine";
 $result = mysqli_query($con, $sql);
 ?>

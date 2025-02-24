@@ -2,6 +2,7 @@
 <?php
 include("../includes/db.php");
 include 'nav.php';
+
 if(isset($_POST['submit']) && isset($_POST['submit']) != null) {
     
     $m_name = mysqli_real_escape_string($con, $_POST['m_name']);

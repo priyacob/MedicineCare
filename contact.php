@@ -1,5 +1,9 @@
 <?php
-include "navbar.php";	
+include "navbar.php";
+if (!isset($_SESSION['USER_LOGIN'])) {
+    header("Location: login.php");
+    exit(); // Ensure that no further code executes after the redirect
+}	
 ?>	
 	
 	

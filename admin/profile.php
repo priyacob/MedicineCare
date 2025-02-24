@@ -1,6 +1,8 @@
 <?php
-include("../includes/db.php");
 include("nav.php");
+include("../includes/db.php");
+
+
 $admin_id=$_SESSION['ADMIN_ID'];
 $sql="SELECT * FROM admin where id= $admin_id";
 $result = mysqli_query($con, $sql);
