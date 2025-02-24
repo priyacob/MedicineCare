@@ -1,7 +1,10 @@
 <?php
 include "navbar.php";	
 require "includes/db.php";  
-
+if (!isset($_SESSION['USER_LOGIN'])) {
+    echo "<script>window.location.href = 'login.php';</script>";
+    exit(); // Ensure that no further code executes after the redirect
+}
 
 
 // Fetch all categories
@@ -54,7 +57,7 @@ $medicine_result = mysqli_query($con, $medicine_query);
             <div class="medicine-item bg-white shadow-md rounded-lg p-4 text-center border border-blue-100 hover:shadow-lg transition-shadow"
                  data-category="<?php echo strtolower($medicine['m_category']); ?>"
                  data-name="<?php echo strtolower($medicine['m_name']); ?>">
-                <img src="img/<?php echo $medicine['image']; ?>" alt="Product Image" class="w-full h-32 md:h-40 object-cover rounded-t-lg mb-2">
+                <img src="img/product/<?php echo $medicine['image']; ?>" alt="Product Image" class="w-full h-32 md:h-40 object-cover rounded-t-lg mb-2">
                 <h3 class="font-bold text-blue-600"><?php echo $medicine['m_name']; ?></h3>
                 <p class="text-gray-600"><?php echo $medicine['sort_description']; ?></p>
                 <p class="font-semibold text-blue-700">₹<?php echo $medicine['price']; ?></p>
