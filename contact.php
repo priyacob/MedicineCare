@@ -1,5 +1,5 @@
 <?php
-include "nav.php";
+include "navbar.php";
 include "includes/db.php"; // Ensure correct path
 
 // Handle form submission
