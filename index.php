@@ -2,6 +2,7 @@
 include("navbar.php");	
 include('includes/db.php');
 
+
 $sql = "SELECT * FROM medicine"; // Replace with your actual table name
 $result = mysqli_query($con, $sql);
 ?>
