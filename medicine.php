@@ -1,7 +1,10 @@
 <?php
 include "navbar.php";	
 require "includes/db.php";  
-
+if (!isset($_SESSION['USER_LOGIN'])) {
+    header("Location: login.php");
+    exit(); // Ensure that no further code executes after the redirect
+}
 
 
 // Fetch all categories
@@ -57,8 +60,13 @@ $medicine_result = mysqli_query($con, $medicine_query);
                  data-category="<?php echo strtolower($medicine['m_category']); ?>"
                  <input type="hidden" name="m_id" value="<?php $row['m_id'];?>">
                  data-name="<?php echo strtolower($medicine['m_name']); ?>">
+<<<<<<< HEAD
                 <img src="img/<?php echo $medicine['image']; ?>" alt="Product Image" class="w-full h-32 md:h-40 object-cover rounded-t-lg mb-2">
                 <h3 name="m_name" class="font-bold text-blue-600"><?php echo $medicine['m_name']; ?></h3>
+=======
+                <img src="img/product/<?php echo $medicine['image']; ?>" alt="Product Image" class="w-full h-32 md:h-40 object-cover rounded-t-lg mb-2">
+                <h3 class="font-bold text-blue-600"><?php echo $medicine['m_name']; ?></h3>
+>>>>>>> 021df8f0e38d93a50fc094ae441db3723309cd25
                 <p class="text-gray-600"><?php echo $medicine['sort_description']; ?></p>
                 <p name="pirice" class="font-semibold text-blue-700">₹<?php echo $medicine['price']; ?></p>
                 <p class="text-sm text-gray-500">Category: <?php echo $medicine['m_category']; ?></p>

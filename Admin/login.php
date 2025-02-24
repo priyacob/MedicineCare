@@ -1,20 +1,32 @@
 <?php
+session_start();
 include("connect.php");
-if(isset($_POST['submit']) && isset($_POST['submit']) != null) {
-    
+
+if (isset($_POST['submit'])) {
     $email = $_POST['email'];
-    $password = md5($_POST['password']); 
+    $password = $_POST['password']; 
+
     $sql = "SELECT * FROM admin WHERE email = '$email' AND password = '$password'";
     $result = mysqli_query($con, $sql);
+
     if (mysqli_num_rows($result) > 0) {
-        echo "Login successful!";
-        header("location:dashboard.php");
+        $row = mysqli_fetch_assoc($result); // Fetch user data
+
+        // Store session variables
+        $_SESSION['ADMIN_LOGIN'] = 'yes';
+        $_SESSION['ADMIN_ID'] = $row['id'];
+        $_SESSION['ADMIN_NAME'] = $row['name'];
+
+        header("Location: index.php");
+        exit(); // Prevent further execution
     } else {
-        echo "Invalid email or password.";
-        header("location:index.php");
+        $_SESSION['LOGIN_ERROR'] = "Invalid email or password.";
+        header("Location: login.php");
+        exit();
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +38,7 @@ if(isset($_POST['submit']) && isset($_POST['submit']) != null) {
 </head>
 <body>
 
-<div class="container">
+<div class="container" style="background-color: #0056b391;">
     <h2>Admin Signin</h2>
     <form method="POST" action="">
         <input type="email" name="email" placeholder="Enter your email" required>
