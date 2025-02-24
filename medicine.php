@@ -2,7 +2,7 @@
 include "navbar.php";	
 require "includes/db.php";  
 if (!isset($_SESSION['USER_LOGIN'])) {
-    header("Location: login.php");
+    echo "<script>window.location.href = 'login.php';</script>";
     exit(); // Ensure that no further code executes after the redirect
 }
 

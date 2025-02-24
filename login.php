@@ -1,7 +1,6 @@
 <?php
-require('includes/db.php');
 include 'navbar.php';
-
+require('includes/db.php');
 if (isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'] == 'yes') {
 ?>
     <script>

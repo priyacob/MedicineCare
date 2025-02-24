@@ -1,4 +1,5 @@
 <?php
+
 require('includes/db.php');
 require('function.inc.php');
 
