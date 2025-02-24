@@ -1,8 +1,9 @@
 <!-- 20 data inserted medicine       index.php -->
 
 <?php
-include('includes/db.php');
 include("navbar.php");	
+include('includes/db.php');
+
 $sql = "SELECT * FROM medicine"; // Replace with your actual table name
 $result = mysqli_query($con, $sql);
 ?>
@@ -754,4 +755,5 @@ $result = mysqli_query($con, $sql);
 
 		
 
-		
+		<?php 
+include 'footer.php';?>

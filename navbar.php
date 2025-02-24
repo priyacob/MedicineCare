@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 
 
 <!doctype html>
@@ -135,12 +137,8 @@
 												
 											</li>
 							
-											<li><a href="medicine.php">Medicine<i class="icofont-rounded-down"></i></a>
-												<ul class="dropdown">
-													<li><a href="">abcd</a></li>
-													<li><a href="">abcd</a></li>
-													<li><a href="">abcd</a></li>
-												</ul>
+											<li><a href="medicine.php">Medicine</a>
+												
 											</li>
 											
 											<li><a href="#">Blogs <i class="icofont-rounded-down"></i></a>
@@ -157,11 +155,11 @@
 							<div class="col-lg-2 col-12">
     <?php if(isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'])  { ?>
         <div class="get-quote">
-            <a href="logout.php" class="btn">Logout</a>
+            <a href="logout.php" class="btn" >Logout</a>
         </div>
     <?php } else { ?>
         <div class="get-quote">
-            <a href="login.php" class="btn">SignUp/SignIn</a>
+            <a href="login.php" class="btn" >SignUp/SignIn</a>
         </div>
     <?php } ?>
 </div>
