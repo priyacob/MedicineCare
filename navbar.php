@@ -16,6 +16,9 @@ session_start();
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 		<!-- Title -->
         <title>Mediplus - Free Medical and Doctor Directory HTML Template.</title>
+
+		<!-- Bootstrap 5 CDN -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 		
 		<!-- Favicon -->
         <link rel="icon" href="img/favicon.png">
@@ -26,6 +29,7 @@ session_start();
 		<!-- Google Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
+		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<!-- Nice Select CSS -->
@@ -57,31 +61,6 @@ session_start();
 	
 		<!-- Header Area -->
 		<header class="header" >
-			<!-- Topbar -->
-			<div class="topbar">
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-6 col-md-5 col-12">
-							<!-- Contact -->
-							<ul class="top-link">
-								<li><a href="#">About</a></li>
-								<li><a href="#">Doctors</a></li>
-								<li><a href="#">Contact</a></li>
-								<li><a href="#">FAQ</a></li>
-							</ul>
-							<!-- End Contact -->
-						</div>
-						<div class="col-lg-6 col-md-7 col-12">
-							<!-- Top Contact -->
-							<ul class="top-contact">
-								<li><i class="fa fa-phone"></i>+880 1234 56789</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">support@yourmail.com</a></li>
-							</ul>
-							<!-- End Top Contact -->
-						</div>
-					</div>
-				</div>
-			</div>
 			<!-- End Topbar -->
 			<!-- Header Inner -->
 			<div class="header-inner">
@@ -122,7 +101,7 @@ session_start();
 								</div>
 								<!--/ End Main Menu -->
 							</div>
-							<div class="col-lg-2 col-12">
+							<div class="col-lg-2 col-12" style="margin-top:20px ;">
     <?php if(isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'])  { ?>
         <div class="">
             <a href="logout.php" class="btn"style="background-color: #1f2937;color:white;" >Logout</a>

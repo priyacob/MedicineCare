@@ -16,14 +16,7 @@ $medicine_query = "SELECT * FROM medicine WHERE status = 1 ORDER BY added_on DES
 $medicine_result = mysqli_query($con, $medicine_query);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medicine Shop</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
 <body class="bg-blue-50">
 
 <!-- Search & Category Filter -->
@@ -47,7 +40,6 @@ $medicine_result = mysqli_query($con, $medicine_query);
             <?php } ?>
         </select>
     </div>
-</header>
 
 <!-- Medicines Section -->
 <main class="max-w-7xl mx-auto p-4">
@@ -70,6 +62,10 @@ $medicine_result = mysqli_query($con, $medicine_query);
     </div>
 </main>
 
+<?php
+include 'footer.php'
+
+?>
 <!-- JavaScript for Filtering -->
 <script>
    document.getElementById('searchBox').addEventListener('input', function() {
@@ -103,4 +99,3 @@ function filterMedicines() {
 </script>
 
 </body>
-</html>
