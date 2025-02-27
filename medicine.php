@@ -58,12 +58,11 @@ $medicine_result = mysqli_query($con, $medicine_query);
     <?php while ($medicine = mysqli_fetch_assoc($medicine_result)) { ?>
             <div class="medicine-item bg-white shadow-md rounded-lg p-4 text-center border border-blue-100 hover:shadow-lg transition-shadow"
                  data-category="<?php echo strtolower($medicine['m_category']); ?>"
-                 <input type="hidden" name="m_id" value="<?php $row['m_id'];?>">
+               
                  data-name="<?php echo strtolower($medicine['m_name']); ?>">
-<<<<<<< HEAD
                 <img src="img/<?php echo $medicine['image']; ?>" alt="Product Image" class="w-full h-32 md:h-40 object-cover rounded-t-lg mb-2">
                 <h3 name="m_name" class="font-bold text-blue-600"><?php echo $medicine['m_name']; ?></h3>
-=======
+
                 <img src="img/product/<?php echo $medicine['image']; ?>" alt="Product Image" class="w-full h-32 md:h-40 object-cover rounded-t-lg mb-2">
                 <h3 class="font-bold text-blue-600"><?php echo $medicine['m_name']; ?></h3>
 >>>>>>> 021df8f0e38d93a50fc094ae441db3723309cd25
