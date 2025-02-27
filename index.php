@@ -6,7 +6,7 @@ $sql = "SELECT * FROM medicine";
 $result = mysqli_query($con, $sql);
 ?>
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <section class="slider">
     <div class="hero-slider">
         <!-- Start Single Slider -->
@@ -88,8 +88,10 @@ $result = mysqli_query($con, $sql);
                 <p class="text-gray-600"><?php echo htmlspecialchars($row['description']); ?></p>
                 <p class="font-semibold text-blue-700">₹<?php echo number_format($row['price'], 2); ?></p>
                 <button class="mt-2 bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition">Buy Now</button>
-                <button class="mt-2 bg-blue-100 text-blue-600 rounded-lg px-4 py-2 hover:bg-blue-200 transition">Add to Cart</button>
-            </div>
+                <button class="mt-2 bg-blue-100 text-blue-600 rounded-lg px-4 py-2 hover:bg-blue-200 transition add-to-cart" 
+        data-m_id="<?php echo $row['m_id']; ?>">
+    Add to Cart
+</button>            </div>
         <?php } ?>
     </div>
 </section>
@@ -195,3 +197,42 @@ $result = mysqli_query($con, $sql);
 include 'footer.php'
 
 ?>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".add-to-cart").forEach(button => {
+            button.addEventListener("click", function () {
+                let m_id = this.getAttribute("data-m_id"); // Get medicine ID
+                let u_id = "<?php echo $_SESSION['uid']  ?? ''; ?>"; // Get user ID (from PHP session)
+
+                if (!u_id) {
+                    alert("Please log in to add items to the cart.");
+                    window.location.href = "login.php";
+                    return;
+                }
+
+                let formData = new FormData();
+                formData.append("m_id", m_id);
+                formData.append("u_id", u_id);
+
+                console.log("Sending data:", { m_id, u_id });
+
+                fetch("add_to_cart.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Response from server:", data); // Debugging
+
+                    if (data.success) {
+                        alert("Added to cart successfully!");
+                    } else {
+                        alert("Failed to add to cart: " + data.message);
+                    }
+                })
+                .catch(error => console.error("Error:", error));
+            });
+        });
+    });
+</script>
