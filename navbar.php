@@ -127,6 +127,9 @@ session_start();
         <div class="">
             <a href="logout.php" class="btn"style="background-color: #1f2937;color:white;" >Logout</a>
         </div>
+		<div class="">
+            <a href="logout.php" class="btn"style="background-color: #1f2937;color:white;" ><img src="img/cart.png" alt="Cart Icon" width="30" height="10"></a>
+        </div>
     <?php } else { ?>
         <div class="" >
             <a href="login.php" class="btn" style="background-color: #1f2937;color:white;">SignUp/SignIn</a>

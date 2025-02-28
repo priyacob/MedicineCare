@@ -75,8 +75,6 @@ $result = mysqli_query($con, $sql);
 
  <!-- card finish -->
 		<main class="max-w-7xl mx-auto p-4">
-
-       
         <section class="mt-8">
     <h2 class="text-xl font-semibold mb-4 text-blue-800">Medicine List</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
